@@ -1,0 +1,150 @@
+DATA OF SLOPE BEFORE ANY DREDGING (k0-initial state)
+(k0,,,,)
+PA,GRAV
+100.  9.81         ! kN/m2  and m/s^2
+K,CMODEL(K)   ! soil layer 1 
+1  3           ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for monot =3)
+GMODW(K),KMODW(K),GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K) ! parameters water + soil 
+0.       0.       0.         0.         2.        1. ! stiffness + density water, density soil/water
+V(I),AA(I),AP(I)
+.12  .0011  .42                ! v aa ap              - non linear elastic
+BB(I),BP(I)
+.0023  .26                     ! bb bp                - compressive plastic
+COH(I),CC(I),CP(I),DP(I)                       
+0.    .5656    1.  .60         ! coh cc cp dp         - failure and yield
+FIMU(I),FICV(I),SCV(I),VGC(I),VGP(I),NU(I)
+30.   30.   1.  0.   1.  0.    ! fimu ficv scv vgc vgp nu - dilatancy
+EE(I),EP(I),LB(I),CN(I)
+.07   2.6  .3   7.             ! ee ep lb cn          - hardening
+CG(I),CV(I),RT(I)
+.8   .8    .3                  ! cg cv rt             - pi plane
+PARCI(I),PARDI(I)
+0.      0.
+KWN(I),CAVCF(I)
+0.    1.    ! KWN=KW/N : undrained KWN = 4.E6 kN/m2
+K,CMODEL(K)    ! soil layer 2  
+2  3           ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for monot =3)
+GMODW(K),KMODW(K),GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K) ! parameters water + soil 
+0.       0.       0.         0.         2.        1. ! stiffness + density water, density soil/water
+V(I),AA(I),AP(I)
+.12  .0011  .42                ! v aa ap              - non linear elastic
+BB(I),BP(I)
+.0023  .26                     ! bb bp                - compressive plastic
+COH(I),CC(I),CP(I),DP(I)                       
+0.    .5656    1.  .60         ! coh cc cp dp         - failure and yield
+FIMU(I),FICV(I),SCV(I),VGC(I),VGP(I),NU(I)
+30.   30.   1.  0.   1.  0.    ! fimu ficv scv vgc vgp nu - dilatancy
+EE(I),EP(I),LB(I),CN(I)
+.07   2.6  .3   7.             ! ee ep lb cn          - hardening
+CG(I),CV(I),RT(I)
+.8   .8    .3                  ! cg cv rt             - pi plane
+PARCI(I),PARDI(I)
+0.      0.
+KWN(I),CAVCF(I)
+0.     1.      ! KWN=KW/N : undrained KWN = 4.E6 kN/m2
+K,CMODEL(K)   ! soil layer 3  
+3  3          ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for monot =3)
+GMODW(K),KMODW(K),GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K) ! parameters water + soil 
+0.       0.       0.         0.         2.        1. ! stiffness + density water, density soil/water
+V(I),AA(I),AP(I)
+.12  .0011  .42                ! v aa ap              - non linear elastic
+BB(I),BP(I)
+.0023  .26                     ! bb bp                - compressive plastic
+COH(I),CC(I),CP(I),DP(I)                       
+0.    .5656    1.  .60         ! coh cc cp dp         - failure and yield
+FIMU(I),FICV(I),SCV(I),VGC(I),VGP(I),NU(I)
+30.   30.   1.  0.   1.  0.    ! fimu ficv scv vgc vgp nu - dilatancy
+EE(I),EP(I),LB(I),CN(I)
+.07   2.6  .3   7.             ! ee ep lb cn          - hardening
+CG(I),CV(I),RT(I)
+.8   .8    .3                  ! cg cv rt             - pi plane
+PARCI(I),PARDI(I)
+0.      0.
+KWN(I),CAVCF(I)
+0.      1.      ! KWN=KW/N : undrained KWN = 4.E6 kN/m2
+K,CMODEL(K)   ! soil layer 4  
+4  3          ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for monot =3)
+GMODW(K),KMODW(K),GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K) ! parameters water + soil 
+0.       0.       0.         0.       2.      1. ! stiffness + density water, density soil/water
+V(I),AA(I),AP(I)
+.12  .0011  .42                ! v aa ap              - non linear elastic
+BB(I),BP(I)
+.0023  .26                     ! bb bp                - compressive plastic
+COH(I),CC(I),CP(I),DP(I)                       
+0.    .5656    1.  .60         ! coh cc cp dp         - failure and yield
+FIMU(I),FICV(I),SCV(I),VGC(I),VGP(I),NU(I)
+30.   30.   1.  0.   1.  0.    ! fimu ficv scv vgc vgp nu - dilatancy
+EE(I),EP(I),LB(I),CN(I)
+.07   2.6  .3   7.             ! ee ep lb cn          - hardening
+CG(I),CV(I),RT(I)
+.8   .8    .3                  ! cg cv rt             - pi plane
+PARCI(I),PARDI(I)
+0.      0.
+KWN(I),CAVCF(I)
+0.     1.      ! KWN=KW/N : undrained KWN = 4.E6 kN/m2
+NRMAT,NRNOD,NRSECT,NCONF,NLNOD,NLSECT,NDCSECT ! boundary conditions
+0     0     3      0     0      0      3        
+TYPCHANG,NFSECT,NTSECT ! boundary conditions
+2        3      0      
+NIP,NIPSEL,NODOF,NOD,NODSEL,PS : specification of elements
+1     2      2    3    2    1                                                 
+ELEMENT
+triangle
+ELEMENT
+line
+RSECT(I,1),RSECT(I,2),RSFR(:)  : restraint boundary sections : I=1,NRSECT,1
+1           22        0    0
+23          30        0    1
+49          60        0    1
+DCSECT(I,1),DCSECT(I,2)   ! direct contact sections of boundary
+31       32                  ! boundary elements of direct contact section 
+DCSECT(I,1),DCSECT(I,2)   ! direct contact sections of boundary
+33       44                  ! boundary elements of direct contact section  
+DCSECT(I,1),DCSECT(I,2)   ! direct contact sections of boundary
+45       48                  ! boundary elements of direct contact section  
+STEP0,STEP: PREVIOUS STEP NUMBER, NUMBER OF STEPS IN CURRENT CALCULATION
+0     1         
+NNEWLAY ! number of layers to be initiated     
+4  
+LAYNUM ! layer number to be initiated : I=1,NNEWLAY,1  
+1   
+LEVELG(LAYNUM),EPK0(LAYNUM),LEVELW(LAYNUM) ! ground level for this layer,
+0.             1.           0.             ! K0-value, water level
+LAYNUM ! layer number to be initiated : I=1,NNEWLAY,1  
+2   
+LEVELG(LAYNUM),EPK0(LAYNUM),LEVELW(LAYNUM) ! ground level for this layer,
+0.             1.           0.             ! K0-value, water level
+LAYNUM ! layer number to be initiated : I=1,NNEWLAY,1  
+3   
+LEVELG(LAYNUM),EPK0(LAYNUM),LEVELW(LAYNUM) ! ground level for this layer,
+0.             1.           0.             ! K0-value, water level
+LAYNUM ! layer number to be initiated : I=1,NNEWLAY,1  
+4   
+LEVELG(LAYNUM),EPK0(LAYNUM),LEVELW(LAYNUM) ! ground level for this layer,
+0.             1.           0.             ! K0-value, water level
+FSECT(I,1),FSECT(I,2)  : section with follower tractions : I=1,NFSECT,1            
+31         32                   
+PRF(I,1),PRF(I,2),SHF(I,1),SHF(I,2)
+0.        0.      0.       0.   ! traction on follower section 
+FSECT(I,1),FSECT(I,2)  : section with follower tractions : I=1,NFSECT,1            
+33         44                   
+PRF(I,1),PRF(I,2),SHF(I,1),SHF(I,2)
+0.       264.87      0.       0.   ! traction on follower section 
+FSECT(I,1),FSECT(I,2)  : section with follower tractions : I=1,NFSECT,1            
+45         48                   
+PRF(I,1),PRF(I,2),SHF(I,1),SHF(I,2)
+264.87   264.87      0.       0.     ! traction on follower section
+NO_PRINT(1),NO_PRINT(2) ! node and direction of printed displacement
+81          1
+ITS,ALWERR,GLOBMAT : maximum iterations, allowable error, global matrix            
+100   0.001    1   ! GLOBMAT = 1 non-linear elastic matrix
+LOADTYP            ! loadtyp = 1 ramp loading   
+1
+THET,TIMLD,DTIMLD,MAXDIS,DEPSALLOW, NMATSOIL : theta-method, ramp loading time                  
+0.51  1.E5  1.E5   0.05    0.01      4              ! prescribed time step 
+                                              ! maximum of displacement to be calculated 
+                                              ! maximum allowable strain increment
+
+
+
+

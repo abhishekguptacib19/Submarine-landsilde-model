@@ -1,0 +1,47 @@
+INITIAL K0-STATE IN ASSUMED HORIZONTAL LAYER (mesh including water) 
+PRESCRIBED TRACTION ON UPPER BOUNDARY SURFACE CREATES EQUILIBRIUM
+PA,GRAV
+100.  9.81         ! kN/m2  and m/s^2
+K,CMODEL(K)   ! WATER layer 1  
+1  6           ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for NAVIER STOKES =6)
+GMODW(K),KMODW(K) GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K)
+0.       2.E6     1.002E-6       0.         1.        1. !  material viscosities, density soil/water
+NRMAT,NRNOD,NRSECT,NCONF,NLNOD,NLSECT,NDCSECT ! boundary conditions
+0     0     4      0     0      0      0        
+TYPCHANG,NFSECT,NTSECT ! boundary conditions
+2        1      0      
+NIP,NIPSEL,NODOF,NOD,NODSEL,PS : specification of elements
+1     2      2    3    2    1                                                 
+ELEMENT
+triangle
+SELEMENT
+line
+RSECT(I,1),RSECT(I,2),RSFR(:)  : restraint boundary sections : I=1,NRSECT,1
+1            5        0    1
+6           10        1    1
+11          15        0    1
+16          20        1    0
+STEP0,STEP: PREVIOUS STEP NUMBER, NUMBER OF STEPS IN CURRENT CALCULATION
+0     1 
+NNEWLAY ! number of layers to be initiated
+1
+LAYNUM ! layer number to be initiated: I=1,NNEWLAY,1
+1
+LEVELG(LAYNUM),EPK0(LAYNUM),LEVELW(LAYNUM) ! ground level for this layer,
+0.             1.           10.001            ! K0-value, water level 
+FSECT(I,1),FSECT(I,2) : section with follower sections : I=1,NFSECT,1
+6          10           ! boundary elements of direct contact section  
+PRF(I,1),PRF(I,2),SHF(I<1),SHF(I,2)
+0.        -0.01962       0.   0.   ! traction on follower section
+NO_PRINT(1),NO_PRINT(2) ! node and direction of printed displacement
+936         10
+ITS,ALWERR,GLOBMAT: maximum iterations, allowable error, global matrix
+100  1e-9  1   ! GLOBMAT = 1 non-linear elastic matrix
+LOADTYP           ! loadtyp = 1 ramp loading
+1
+THET,TIMLD,DTIMLD,MAXDIS,DEPSALLOW,NMATSOIL : theta-method, ramp loading time                  
+0.51   0.01  0.01    0.5     0.01     0        ! prescribed time step 
+            ! maximum allowable displacement is of soil skeleton 
+            ! maximum allowable strain increment is of soil skeleton
+            ! number of material (element) blocks is of remaining soil skeleton
+

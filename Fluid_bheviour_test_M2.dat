@@ -1,0 +1,41 @@
+INITIAL K0-STATE IN ASSUMED HORIZONTAL LAYER (mesh including water) 
+PRESCRIBED TRACTION ON UPPER BOUNDARY SURFACE CREATES EQUILIBRIUM
+PA,GRAV
+100.  9.81         ! kN/m2  and m/s^2
+K,CMODEL(K)   ! WATER layer 1  
+1  6           ! MATERIAL NUMBER, CONSTITUTIVE MODEL NUMBER: (for NAVIER STOKES =6)
+GMODW(K),KMODW(K) GMODVSC(K),KMODVSC(K),RHOWET(K),RHODRY(K)
+0.       2.E6      0       0.      0.         1.        1. !  material viscosities, density soil/water
+NRMAT,NRNOD,NRSECT,NCONF,NLNOD,NLSECT,NDCSECT ! boundary conditions
+0     0     4      0     0      1      0        
+TYPCHANG,NFSECT,NTSECT ! boundary conditions
+0        0      0      
+NIP,NIPSEL,NODOF,NOD,NODSEL,PS : specification of elements
+1     2      2    3    2    1                                                 
+ELEMENT
+triangle
+SELEMENT
+line
+RSECT(I,1),RSECT(I,2),RSFR(:)  : restraint boundary sections : I=1,NRSECT,1
+1            5        0    1
+6           10        1    1
+11          15        0    1
+16          20        1    0
+LCSECT(I,1),LCSECT(I,2) ! sections with tractions due : I=1,NLSECT,1
+6           10   ! to buoyant weight
+PRL(I,1),PRL(I,2),SHL(I,1),SHL(I,2)
+0.     0.01962        0.       0. ! tractions due to buoyant weight
+STEP0,STEP: PREVIOUS STEP NUMBER, NUMBER OF STEPS IN CURRENT CALCULATION
+1     275
+NO_PRINT(1),NO_PRINT(2) ! node and direction of printed displacement
+936         10
+ITS,ALWERR,GLOBMAT: maximum iterations, allowable error, global matrix
+100  0.005  1   ! GLOBMAT = 1 non-linear elastic matrix
+LOADTYP           ! loadtyp = 1 ramp loading
+1
+THET,TIMLD,DTIMLD,MAXDIS,DEPSALLOW,NMATSOIL : theta-method, ramp loading time                  
+0.5   0.    0.04     0.5     0.01        0        ! prescribed time step 
+            ! Note: maximum allowable displacement is of soil skeleton 
+            ! Note: maximum allowable strain increment is of soil skeleton
+            ! Note: number of material (element) blocks is of remaining soil skeleton
+
